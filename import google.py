@@ -1,7 +1,10 @@
 import google.generativeai as genai
+import os
 
-genai.configure(api_key="AIzaSyBXjJudPqt-Bb9S-Aq7Tap5Vm1JvgHtdL0")  # replace with your real key
+# Load the API key securely from environment variable
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 print("\nAvailable models in your account:\n")
 for m in genai.list_models():
     print(m.name)
+

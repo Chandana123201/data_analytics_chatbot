@@ -7,9 +7,11 @@ from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 import tempfile
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
-# --- Configure Gemini client ---
-client = genai.Client(api_key="AIzaSyBXjJudPqt-Bb9S-Aq7Tap5Vm1JvgHtdL0")  # 🔑 Replace with your Gemini API key
+# Load API key safely from environment variable
+client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # --- Streamlit App Setup ---
 st.set_page_config(page_title="Data Analytics Chatbot", layout="centered")
